@@ -1,3 +1,18 @@
+import {
+  Code2,
+  Database,
+  Layers,
+  Terminal,
+  Rocket,
+  Gamepad2,
+  Heart,
+  Mail,
+  Github,
+  Linkedin,
+  ExternalLink,
+  ChevronDown,
+} from "lucide-react";
+
 export const projects = {
   django: [
     {
