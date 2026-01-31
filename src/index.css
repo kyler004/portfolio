@@ -1,1 +1,21 @@
-@import "tailwindcss"; 
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap");
+@import "tailwindcss";
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
