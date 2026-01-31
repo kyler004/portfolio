@@ -13,9 +13,9 @@ interface SideQuestsProps {
 
 export default function SideQuests({ sideQuests }: SideQuestsProps) {
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-[#0A192F] to-[#112240] diagonal-stripes">
+    <section className="py-32 px-6 bg-linear-to-b from-[#0A192F] to-[#112240] diagonal-stripes">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-6xl text-[#FF6B9D] mb-4 fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-[#FF6B9D] mb-4 fade-up">
           Side Quests
         </h2>
         <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">

@@ -85,7 +85,7 @@ const SkillsConstellation = forwardRef<
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="font-display text-6xl text-[#64FFDA] mb-4 fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
           Skills Constellation
         </h2>
         <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">

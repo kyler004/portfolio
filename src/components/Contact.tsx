@@ -12,9 +12,9 @@ export default function Contact({
   linkedinUrl = "#", // TODO: Replace with actual LinkedIn URL
 }: ContactProps) {
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-[#0A192F] to-[#112240] relative overflow-hidden hero-gradient">
+    <section className="py-32 px-6 bg-linear-to-b from-[#0A192F] to-[#112240] relative overflow-hidden hero-gradient">
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <h2 className="font-display text-6xl text-[#64FFDA] mb-6 neon-glow fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-6 neon-glow fade-up">
           Let's Build Something
         </h2>
         <p

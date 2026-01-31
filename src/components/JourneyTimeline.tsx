@@ -5,7 +5,7 @@ const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section ref={ref} className="py-32 px-6 relative diagonal-stripes">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-6xl text-[#64FFDA] mb-4 fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
           The Journey
         </h2>
         <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">
@@ -14,8 +14,8 @@ const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
 
         <div className="space-y-20">
           {/* Phase 1: C Programming */}
-          <article className="flex gap-12 items-start fade-left">
-            <div className="flex-shrink-0">
+          <article className="flex flex-col md:flex-row gap-6 md:gap-12 items-start fade-left">
+            <div className="shrink-0 hidden md:block">
               <div className="w-20 h-20 rounded-full bg-[#64FFDA]/20 border-2 border-[#64FFDA] flex items-center justify-center neon-border">
                 <Terminal size={32} className="text-[#64FFDA]" />
               </div>
@@ -46,8 +46,8 @@ const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
           </article>
 
           {/* Phase 2: Backend Development */}
-          <article className="flex gap-12 items-start flex-row-reverse fade-right">
-            <div className="flex-shrink-0">
+          <article className="flex flex-col md:flex-row-reverse gap-6 md:gap-12 items-start fade-right">
+            <div className="shrink-0 hidden md:block">
               <div
                 className="w-20 h-20 rounded-full bg-[#FF6B9D]/20 border-2 border-[#FF6B9D] flex items-center justify-center"
                 style={{ boxShadow: "0 0 20px rgba(255, 107, 157, 0.3)" }}
@@ -87,8 +87,8 @@ const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
           </article>
 
           {/* Phase 3: Frontend Excellence */}
-          <article className="flex gap-12 items-start fade-left">
-            <div className="flex-shrink-0">
+          <article className="flex flex-col md:flex-row gap-6 md:gap-12 items-start fade-left">
+            <div className="shrink-0 hidden md:block">
               <div className="w-20 h-20 rounded-full bg-[#64FFDA]/20 border-2 border-[#64FFDA] flex items-center justify-center neon-border">
                 <Code2 size={32} className="text-[#64FFDA]" />
               </div>
@@ -124,8 +124,8 @@ const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
           </article>
 
           {/* Phase 4: Full-Stack Vision */}
-          <article className="flex gap-12 items-start flex-row-reverse fade-right">
-            <div className="flex-shrink-0">
+          <article className="flex flex-col md:flex-row-reverse gap-6 md:gap-12 items-start fade-right">
+            <div className="shrink-0 hidden md:block">
               <div
                 className="w-20 h-20 rounded-full bg-[#FF6B9D]/20 border-2 border-[#FF6B9D] flex items-center justify-center"
                 style={{ boxShadow: "0 0 20px rgba(255, 107, 157, 0.3)" }}

@@ -21,7 +21,7 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
     return (
       <section ref={ref} className="py-32 px-6 bg-[#0A192F] relative">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-display text-6xl text-[#64FFDA] mb-4 fade-up">
+          <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
             Featured Projects
           </h2>
           <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">

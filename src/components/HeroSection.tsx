@@ -28,20 +28,20 @@ const HeroSection = forwardRef<HTMLDivElement>((_, ref) => {
           Hello, I'm
         </div>
         <h1
-          className="font-display text-8xl mb-6 glitch neon-glow fade-up"
+          className="font-display text-5xl sm:text-6xl md:text-8xl mb-6 glitch neon-glow fade-up"
           data-text="RYAN"
           style={{ transitionDelay: "0.2s" }}
         >
           RYAN
         </h1>
         <h2
-          className="font-body text-3xl text-[#8892B0] mb-8 fade-up"
+          className="font-body text-xl sm:text-2xl md:text-3xl text-[#8892B0] mb-8 fade-up"
           style={{ transitionDelay: "0.4s" }}
         >
           Full-Stack Developer in the Making
         </h2>
         <p
-          className="font-body text-xl text-[#8892B0] max-w-3xl mx-auto mb-12 leading-relaxed fade-up"
+          className="font-body text-base md:text-xl text-[#8892B0] max-w-3xl mx-auto mb-12 leading-relaxed fade-up px-4"
           style={{ transitionDelay: "0.6s" }}
         >
           Building <span className="text-[#64FFDA]">real, usable systems</span>{" "}
@@ -50,7 +50,7 @@ const HeroSection = forwardRef<HTMLDivElement>((_, ref) => {
           <span className="text-[#64FFDA]"> practical engineering</span>.
         </p>
         <div
-          className="flex gap-6 justify-center items-center fade-up"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center fade-up"
           style={{ transitionDelay: "0.8s" }}
         >
           <a
