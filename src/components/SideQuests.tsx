@@ -13,12 +13,12 @@ interface SideQuestsProps {
 
 export default function SideQuests({ sideQuests }: SideQuestsProps) {
   return (
-    <section className="py-32 px-6 bg-linear-to-b from-[#0A192F] to-[#112240] diagonal-stripes">
+    <section className="py-32 px-6 bg-linear-to-b from-bg-dark to-bg-card diagonal-stripes">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-4xl md:text-6xl text-[#FF6B9D] mb-4 fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-secondary mb-4 fade-up">
           Side Quests
         </h2>
-        <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">
+        <p className="font-mono text-text-secondary text-lg mb-20 fade-up">
           Exploring beyond the main path
         </p>
 
@@ -28,20 +28,20 @@ export default function SideQuests({ sideQuests }: SideQuestsProps) {
             return (
               <article
                 key={idx}
-                className="bg-[#0A192F] border-2 border-[#FF6B9D]/30 rounded-xl p-8 hover-lift stagger-item"
+                className="bg-bg-dark border-2 border-secondary/30 rounded-xl p-8 hover-lift stagger-item"
               >
-                <Icon size={48} className="text-[#FF6B9D] mb-6" />
-                <h3 className="font-display text-3xl text-[#CCD6F6] mb-4">
+                <Icon size={48} className="text-secondary mb-6" />
+                <h3 className="font-display text-3xl text-text-primary mb-4">
                   {quest.title}
                 </h3>
-                <p className="font-body text-[#8892B0] mb-6 leading-relaxed">
+                <p className="font-body text-text-secondary mb-6 leading-relaxed">
                   {quest.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {quest.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm"
+                      className="px-3 py-1 bg-secondary/10 border border-secondary/30 rounded text-secondary font-mono text-sm"
                     >
                       {tech}
                     </span>

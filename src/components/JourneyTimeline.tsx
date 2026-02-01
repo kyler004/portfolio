@@ -1,172 +1,96 @@
-import { Terminal, Database, Code2, Rocket } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { forwardRef } from "react";
 
-const JourneyTimeline = forwardRef<HTMLDivElement>((_, ref) => {
-  return (
-    <section ref={ref} className="py-32 px-6 relative diagonal-stripes">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
-          The Journey
-        </h2>
-        <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">
-          From terminal games to full-stack systems
-        </p>
+interface JourneyPhase {
+  phase: string;
+  description: string;
+  icon: LucideIcon;
+  tech: string[];
+  color: string;
+}
 
-        <div className="space-y-20">
-          {/* Phase 1: C Programming */}
-          <article className="flex flex-col md:flex-row gap-6 md:gap-12 items-start fade-left">
-            <div className="shrink-0 hidden md:block">
-              <div className="w-20 h-20 rounded-full bg-[#64FFDA]/20 border-2 border-[#64FFDA] flex items-center justify-center neon-border">
-                <Terminal size={32} className="text-[#64FFDA]" />
-              </div>
-            </div>
-            <div className="flex-1 bg-[#112240] border border-[#64FFDA]/30 rounded-lg p-8 hover-lift">
-              <h3 className="font-display text-3xl text-[#CCD6F6] mb-3">
-                Phase 1: The Foundation
-              </h3>
-              <p className="font-body text-[#8892B0] mb-4">
-                Started with{" "}
-                <span className="text-[#64FFDA]">C programming</span>, building
-                terminal games like Tic-Tac-Toe and Ludo. Learned data
-                structures, memory management, and the fundamentals of{" "}
-                <span className="text-[#FF6B9D]">systems thinking</span>.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  C
-                </span>
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  SDL2
-                </span>
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  Game Logic
-                </span>
-              </div>
-            </div>
-          </article>
+interface JourneyTimelineProps {
+  journey: JourneyPhase[];
+}
 
-          {/* Phase 2: Backend Development */}
-          <article className="flex flex-col md:flex-row-reverse gap-6 md:gap-12 items-start fade-right">
-            <div className="shrink-0 hidden md:block">
-              <div
-                className="w-20 h-20 rounded-full bg-[#FF6B9D]/20 border-2 border-[#FF6B9D] flex items-center justify-center"
-                style={{ boxShadow: "0 0 20px rgba(255, 107, 157, 0.3)" }}
-              >
-                <Database size={32} className="text-[#FF6B9D]" />
-              </div>
-            </div>
-            <div className="flex-1 bg-[#112240] border border-[#FF6B9D]/30 rounded-lg p-8 hover-lift">
-              <h3 className="font-display text-3xl text-[#CCD6F6] mb-3">
-                Phase 2: Backend Mastery
-              </h3>
-              <p className="font-body text-[#8892B0] mb-4">
-                Dove into{" "}
-                <span className="text-[#FF6B9D]">Django and REST APIs</span>,
-                creating production-ready systems. Built e-commerce platforms,
-                project managers, and fitness trackers—learning{" "}
-                <span className="text-[#64FFDA]">
-                  architecture and scalability
-                </span>
-                .
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  Django
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  DRF
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  PostgreSQL
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  Authentication
-                </span>
-              </div>
-            </div>
-          </article>
+const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
+  ({ journey }, ref) => {
+    return (
+      <section ref={ref} className="py-32 px-6 relative diagonal-stripes">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-display text-4xl md:text-6xl text-primary mb-4 fade-up">
+            The Journey
+          </h2>
+          <p className="font-mono text-text-secondary text-lg mb-20 fade-up">
+            From terminal games to full-stack systems
+          </p>
 
-          {/* Phase 3: Frontend Excellence */}
-          <article className="flex flex-col md:flex-row gap-6 md:gap-12 items-start fade-left">
-            <div className="shrink-0 hidden md:block">
-              <div className="w-20 h-20 rounded-full bg-[#64FFDA]/20 border-2 border-[#64FFDA] flex items-center justify-center neon-border">
-                <Code2 size={32} className="text-[#64FFDA]" />
-              </div>
-            </div>
-            <div className="flex-1 bg-[#112240] border border-[#64FFDA]/30 rounded-lg p-8 hover-lift">
-              <h3 className="font-display text-3xl text-[#CCD6F6] mb-3">
-                Phase 3: Frontend Polish
-              </h3>
-              <p className="font-body text-[#8892B0] mb-4">
-                Mastered{" "}
-                <span className="text-[#64FFDA]">
-                  React, TypeScript, and modern UI frameworks
-                </span>
-                . Created interactive music players, live editors, and animated
-                landing pages with{" "}
-                <span className="text-[#FF6B9D]">attention to UX</span>.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  React
-                </span>
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  TypeScript
-                </span>
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  Tailwind
-                </span>
-                <span className="px-3 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-sm">
-                  GSAP
-                </span>
-              </div>
-            </div>
-          </article>
+          <div className="relative">
+            {/* Central Spine Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:-translate-x-1/2"></div>
 
-          {/* Phase 4: Full-Stack Vision */}
-          <article className="flex flex-col md:flex-row-reverse gap-6 md:gap-12 items-start fade-right">
-            <div className="shrink-0 hidden md:block">
-              <div
-                className="w-20 h-20 rounded-full bg-[#FF6B9D]/20 border-2 border-[#FF6B9D] flex items-center justify-center"
-                style={{ boxShadow: "0 0 20px rgba(255, 107, 157, 0.3)" }}
-              >
-                <Rocket size={32} className="text-[#FF6B9D]" />
-              </div>
+            <div className="space-y-12">
+              {journey.map((item, index) => {
+                const Icon = item.icon;
+                const isEven = index % 2 === 0;
+
+                return (
+                  <article
+                    key={index}
+                    className={`relative flex flex-col md:flex-row gap-8 md:gap-0 items-start ${
+                      isEven ? "md:flex-row" : "md:flex-row-reverse"
+                    } fade-up stagger-item`}
+                  >
+                    {/* Icon on Spine */}
+                    <div className="absolute left-4 md:left-1/2 w-12 h-12 -ml-6 flex items-center justify-center rounded-full bg-bg-card border-2 border-primary z-10 transform md:-translate-x-0 translate-x-[-50%]">
+                      <Icon size={20} className="text-primary" />
+                    </div>
+
+                    {/* Content Card */}
+                    <div
+                      className={`md:w-1/2 pl-12 md:pl-0 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12"}`}
+                    >
+                      <div className="bg-bg-card border border-primary/30 rounded-lg p-6 hover-lift relative group">
+                        <div
+                          className={`absolute top-6 w-4 h-4 bg-bg-card border-t border-r border-primary/30 rotate-45 transform 
+                           ${isEven ? "right-[-9px] md:right-[-9px] border-l-0 border-b-0" : "left-[-9px] md:left-[-9px] border-r-0 border-t-0 border-b border-l"}
+                           hidden md:block transition-colors group-hover:border-primary`}
+                        ></div>
+
+                        <h3
+                          className={`font-display text-2xl mb-2 ${item.color === "secondary" ? "text-secondary" : "text-text-primary"}`}
+                        >
+                          {item.phase}
+                        </h3>
+                        <p className="font-body text-text-secondary mb-4 text-sm leading-relaxed">
+                          {item.description}
+                        </p>
+                        <div
+                          className={`flex gap-2 flex-wrap ${isEven ? "md:justify-end" : ""}`}
+                        >
+                          {item.tech.map((t, i) => (
+                            <span
+                              key={i}
+                              className={`px-2 py-1 bg-${item.color === "secondary" ? "secondary" : "primary"}/10 border border-${item.color === "secondary" ? "secondary" : "primary"}/30 rounded text-${item.color === "secondary" ? "secondary" : "primary"} font-mono text-xs`}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {/* Spacer for the other side */}
+                    <div className="hidden md:block md:w-1/2" />
+                  </article>
+                );
+              })}
             </div>
-            <div className="flex-1 bg-[#112240] border border-[#FF6B9D]/30 rounded-lg p-8 hover-lift">
-              <h3 className="font-display text-3xl text-[#CCD6F6] mb-3">
-                Phase 4: The Vision
-              </h3>
-              <p className="font-body text-[#8892B0] mb-4">
-                Now combining everything—
-                <span className="text-[#FF6B9D]">full-stack development</span>,
-                data science, and entrepreneurial thinking. Building{" "}
-                <span className="text-[#64FFDA]">WellnessWear</span> and aiming
-                to create{" "}
-                <span className="text-[#FF6B9D]">impactful tech solutions</span>{" "}
-                by 2026.
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  Full-Stack
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  ML/AI
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  Leadership
-                </span>
-                <span className="px-3 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-sm">
-                  Social Impact
-                </span>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
-      </div>
-    </section>
-  );
-});
+      </section>
+    );
+  },
+);
 
 JourneyTimeline.displayName = "JourneyTimeline";
 

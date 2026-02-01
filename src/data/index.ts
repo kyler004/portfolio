@@ -1,17 +1,46 @@
 import {
   Code2,
   Database,
-  Layers,
   Terminal,
   Rocket,
   Gamepad2,
   Heart,
-  Mail,
-  Github,
-  Linkedin,
-  ExternalLink,
-  ChevronDown,
 } from "lucide-react";
+
+export const journey = [
+  {
+    phase: "Phase 1: The Foundation",
+    description:
+      "Started with C programming, building terminal games like Tic-Tac-Toe and Ludo. Learned data structures, memory management, and the fundamentals of systems thinking.",
+    icon: Terminal,
+    tech: ["C", "SDL2", "Game Logic"],
+    color: "primary", // maps to --color-primary
+  },
+  {
+    phase: "Phase 2: Backend Mastery",
+    description:
+      "Dove into Django and REST APIs, creating production-ready systems. Built e-commerce platforms, project managers, and fitness trackers—learning architecture and scalability.",
+    icon: Database,
+    tech: ["Django", "DRF", "PostgreSQL", "Authentication"],
+    color: "secondary", // maps to --color-secondary
+  },
+  {
+    phase: "Phase 3: Frontend Polish",
+    description:
+      "Mastered React, TypeScript, and modern UI frameworks. Created interactive music players, live editors, and animated landing pages with attention to UX.",
+    icon: Code2,
+    tech: ["React", "TypeScript", "Tailwind", "GSAP"],
+    color: "primary",
+  },
+  {
+    phase: "Phase 4: The Vision",
+    description:
+      "Now combining everything—full-stack development, data science, and entrepreneurial thinking. Building WellnessWear and aiming to create impactful tech solutions by 2026.",
+    icon: Rocket,
+    tech: ["Full-Stack", "ML/AI", "Leadership", "Social Impact"],
+    color: "secondary",
+  },
+];
 
 export const projects = {
   django: [

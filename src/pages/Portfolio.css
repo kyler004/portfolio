@@ -2,14 +2,8 @@
 /* Extracted from inline styles for better maintainability */
 
 /* ===== CSS Custom Properties (Theme) ===== */
-:root {
-  --color-primary: #64ffda;
-  --color-secondary: #ff6b9d;
-  --color-bg-dark: #0a192f;
-  --color-bg-card: #112240;
-  --color-text-primary: #ccd6f6;
-  --color-text-secondary: #8892b0;
-}
+/* ===== CSS Custom Properties (Theme) ===== */
+/* Theme variables are now defined in index.css via @theme */
 
 /* ===== Typography ===== */
 .font-display {

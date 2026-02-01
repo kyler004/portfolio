@@ -20,7 +20,7 @@ const SkillsConstellation = forwardRef<
   return (
     <section
       ref={ref}
-      className="py-32 px-6 bg-[#0A192F] relative overflow-hidden"
+      className="py-32 px-6 bg-bg-dark relative overflow-hidden"
     >
       {/* Constellation lines background */}
       <div className="absolute inset-0 opacity-10" aria-hidden="true">
@@ -30,7 +30,7 @@ const SkillsConstellation = forwardRef<
             y1="20%"
             x2="30%"
             y2="40%"
-            stroke="#64FFDA"
+            stroke="var(--color-primary)"
             strokeWidth="1"
           />
           <line
@@ -38,7 +38,7 @@ const SkillsConstellation = forwardRef<
             y1="40%"
             x2="50%"
             y2="35%"
-            stroke="#64FFDA"
+            stroke="var(--color-primary)"
             strokeWidth="1"
           />
           <line
@@ -46,7 +46,7 @@ const SkillsConstellation = forwardRef<
             y1="35%"
             x2="70%"
             y2="50%"
-            stroke="#64FFDA"
+            stroke="var(--color-primary)"
             strokeWidth="1"
           />
           <line
@@ -54,7 +54,7 @@ const SkillsConstellation = forwardRef<
             y1="50%"
             x2="85%"
             y2="30%"
-            stroke="#64FFDA"
+            stroke="var(--color-primary)"
             strokeWidth="1"
           />
           <line
@@ -62,7 +62,7 @@ const SkillsConstellation = forwardRef<
             y1="60%"
             x2="40%"
             y2="75%"
-            stroke="#FF6B9D"
+            stroke="var(--color-secondary)"
             strokeWidth="1"
           />
           <line
@@ -70,7 +70,7 @@ const SkillsConstellation = forwardRef<
             y1="75%"
             x2="60%"
             y2="70%"
-            stroke="#FF6B9D"
+            stroke="var(--color-secondary)"
             strokeWidth="1"
           />
           <line
@@ -78,23 +78,23 @@ const SkillsConstellation = forwardRef<
             y1="70%"
             x2="80%"
             y2="80%"
-            stroke="#FF6B9D"
+            stroke="var(--color-secondary)"
             strokeWidth="1"
           />
         </svg>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
+        <h2 className="font-display text-4xl md:text-6xl text-primary mb-4 fade-up">
           Skills Constellation
         </h2>
-        <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">
+        <p className="font-mono text-text-secondary text-lg mb-20 fade-up">
           Connected knowledge across the stack
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-[#64FFDA] mb-6 flex items-center gap-3">
+            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
               <Layers size={28} />
               Languages
             </h3>
@@ -102,7 +102,7 @@ const SkillsConstellation = forwardRef<
               {skills.languages.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#112240] border border-[#64FFDA]/20 rounded px-4 py-3 font-mono text-[#CCD6F6] hover:border-[#64FFDA] hover:bg-[#64FFDA]/5 transition-all"
+                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
                 >
                   {skill}
                 </div>
@@ -111,7 +111,7 @@ const SkillsConstellation = forwardRef<
           </div>
 
           <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-[#FF6B9D] mb-6 flex items-center gap-3">
+            <h3 className="font-display text-2xl text-secondary mb-6 flex items-center gap-3">
               <Code2 size={28} />
               Frontend
             </h3>
@@ -119,7 +119,7 @@ const SkillsConstellation = forwardRef<
               {skills.frontend.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#112240] border border-[#FF6B9D]/20 rounded px-4 py-3 font-mono text-[#CCD6F6] hover:border-[#FF6B9D] hover:bg-[#FF6B9D]/5 transition-all"
+                  className="bg-bg-card border border-secondary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-secondary hover:bg-secondary/5 transition-all"
                 >
                   {skill}
                 </div>
@@ -128,7 +128,7 @@ const SkillsConstellation = forwardRef<
           </div>
 
           <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-[#64FFDA] mb-6 flex items-center gap-3">
+            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
               <Database size={28} />
               Backend
             </h3>
@@ -136,7 +136,7 @@ const SkillsConstellation = forwardRef<
               {skills.backend.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#112240] border border-[#64FFDA]/20 rounded px-4 py-3 font-mono text-[#CCD6F6] hover:border-[#64FFDA] hover:bg-[#64FFDA]/5 transition-all"
+                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
                 >
                   {skill}
                 </div>
@@ -145,7 +145,7 @@ const SkillsConstellation = forwardRef<
           </div>
 
           <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-[#FF6B9D] mb-6 flex items-center gap-3">
+            <h3 className="font-display text-2xl text-secondary mb-6 flex items-center gap-3">
               <Terminal size={28} />
               Data & Analysis
             </h3>
@@ -153,7 +153,7 @@ const SkillsConstellation = forwardRef<
               {skills.data.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#112240] border border-[#FF6B9D]/20 rounded px-4 py-3 font-mono text-[#CCD6F6] hover:border-[#FF6B9D] hover:bg-[#FF6B9D]/5 transition-all"
+                  className="bg-bg-card border border-secondary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-secondary hover:bg-secondary/5 transition-all"
                 >
                   {skill}
                 </div>
@@ -162,7 +162,7 @@ const SkillsConstellation = forwardRef<
           </div>
 
           <div className="fade-up stagger-item md:col-span-2 lg:col-span-1">
-            <h3 className="font-display text-2xl text-[#64FFDA] mb-6 flex items-center gap-3">
+            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
               <Rocket size={28} />
               Tools & More
             </h3>
@@ -170,7 +170,7 @@ const SkillsConstellation = forwardRef<
               {skills.other.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#112240] border border-[#64FFDA]/20 rounded px-4 py-3 font-mono text-[#CCD6F6] hover:border-[#64FFDA] hover:bg-[#64FFDA]/5 transition-all"
+                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
                 >
                   {skill}
                 </div>

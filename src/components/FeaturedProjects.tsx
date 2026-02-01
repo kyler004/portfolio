@@ -19,40 +19,40 @@ interface FeaturedProjectsProps {
 const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
   ({ projects }, ref) => {
     return (
-      <section ref={ref} className="py-32 px-6 bg-[#0A192F] relative">
+      <section ref={ref} className="py-32 px-6 bg-bg-dark relative">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-display text-4xl md:text-6xl text-[#64FFDA] mb-4 fade-up">
+          <h2 className="font-display text-4xl md:text-6xl text-primary mb-4 fade-up">
             Featured Projects
           </h2>
-          <p className="font-mono text-[#8892B0] text-lg mb-20 fade-up">
+          <p className="font-mono text-text-secondary text-lg mb-20 fade-up">
             Building real, usable systems
           </p>
 
           {/* Django Projects */}
           <div className="mb-24">
-            <h3 className="font-display text-4xl text-[#FF6B9D] mb-12 flex items-center gap-4 fade-left">
+            <h3 className="font-display text-4xl text-secondary mb-12 flex items-center gap-4 fade-left">
               <Database size={36} />
               Backend Systems
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.django.map((project, idx) => (
                 <article
                   key={idx}
-                  className="bg-[#112240] rounded-lg overflow-hidden border border-[#64FFDA]/20 hover-lift stagger-item"
+                  className="bg-bg-card rounded-lg overflow-hidden border border-primary/20 hover-lift stagger-item flex flex-col h-full"
                 >
-                  <div className="h-3 bg-gradient-to-r from-[#64FFDA] to-[#FF6B9D]"></div>
-                  <div className="p-6">
-                    <h4 className="font-display text-2xl text-[#CCD6F6] mb-3">
+                  <div className="h-3 bg-gradient-to-r from-primary to-secondary"></div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h4 className="font-display text-2xl text-text-primary mb-3">
                       {project.title}
                     </h4>
-                    <p className="font-body text-[#8892B0] mb-6 text-sm leading-relaxed">
+                    <p className="font-body text-text-secondary mb-6 text-sm leading-relaxed flex-grow">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 bg-[#64FFDA]/10 border border-[#64FFDA]/30 rounded text-[#64FFDA] font-mono text-xs"
+                          className="px-2 py-1 bg-primary/10 border border-primary/30 rounded text-primary font-mono text-xs"
                         >
                           {tech}
                         </span>
@@ -61,14 +61,14 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
                     <div className="flex gap-4">
                       <a
                         href={project.github}
-                        className="flex items-center gap-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors font-mono text-sm"
+                        className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors font-mono text-sm"
                       >
                         <Github size={18} />
                         Code
                       </a>
                       <a
                         href={project.live}
-                        className="flex items-center gap-2 text-[#8892B0] hover:text-[#FF6B9D] transition-colors font-mono text-sm"
+                        className="flex items-center gap-2 text-text-secondary hover:text-secondary transition-colors font-mono text-sm"
                       >
                         <ExternalLink size={18} />
                         Live
@@ -82,29 +82,29 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
 
           {/* React Projects */}
           <div>
-            <h3 className="font-display text-4xl text-[#64FFDA] mb-12 flex items-center gap-4 fade-left">
+            <h3 className="font-display text-4xl text-primary mb-12 flex items-center gap-4 fade-left">
               <Code2 size={36} />
               Frontend Applications
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.react.map((project, idx) => (
                 <article
                   key={idx}
-                  className="bg-[#112240] rounded-lg overflow-hidden border border-[#FF6B9D]/20 hover-lift stagger-item"
+                  className="bg-bg-card rounded-lg overflow-hidden border border-secondary/20 hover-lift stagger-item flex flex-col h-full"
                 >
-                  <div className="h-3 bg-gradient-to-r from-[#FF6B9D] to-[#64FFDA]"></div>
-                  <div className="p-6">
-                    <h4 className="font-display text-2xl text-[#CCD6F6] mb-3">
+                  <div className="h-3 bg-gradient-to-r from-secondary to-primary"></div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h4 className="font-display text-2xl text-text-primary mb-3">
                       {project.title}
                     </h4>
-                    <p className="font-body text-[#8892B0] mb-6 text-sm leading-relaxed">
+                    <p className="font-body text-text-secondary mb-6 text-sm leading-relaxed flex-grow">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 bg-[#FF6B9D]/10 border border-[#FF6B9D]/30 rounded text-[#FF6B9D] font-mono text-xs"
+                          className="px-2 py-1 bg-secondary/10 border border-secondary/30 rounded text-secondary font-mono text-xs"
                         >
                           {tech}
                         </span>
@@ -113,14 +113,14 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
                     <div className="flex gap-4">
                       <a
                         href={project.github}
-                        className="flex items-center gap-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors font-mono text-sm"
+                        className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors font-mono text-sm"
                       >
                         <Github size={18} />
                         Code
                       </a>
                       <a
                         href={project.live}
-                        className="flex items-center gap-2 text-[#8892B0] hover:text-[#FF6B9D] transition-colors font-mono text-sm"
+                        className="flex items-center gap-2 text-text-secondary hover:text-secondary transition-colors font-mono text-sm"
                       >
                         <ExternalLink size={18} />
                         Live
