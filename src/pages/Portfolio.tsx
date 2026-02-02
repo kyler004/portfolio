@@ -59,7 +59,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A192F] text-[#CCD6F6] overflow-x-hidden pt-16">
+    <div className="min-h-screen bg-[#0A192F] text-[#CCD6F6] overflow-x-hidden pt-16 m-auto">
       <Navbar
         scrollToSection={scrollToSection}
         heroRef={heroRef}
