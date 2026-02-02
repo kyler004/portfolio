@@ -1,4 +1,4 @@
-import { Layers, Code2, Database, Terminal, Rocket } from "lucide-react";
+import { Layers, Code2, Database, Terminal, Rocket, Zap } from "lucide-react";
 import { forwardRef } from "react";
 
 interface Skills {
@@ -13,6 +13,70 @@ interface SkillsConstellationProps {
   skills: Skills;
 }
 
+interface SkillCategoryProps {
+  title: string;
+  icon: React.ReactNode;
+  skills: string[];
+  variant?: "primary" | "secondary";
+  delay?: number;
+}
+
+const SkillCategory = ({
+  title,
+  icon,
+  skills,
+  variant = "primary",
+  delay = 0,
+}: SkillCategoryProps) => {
+  const isPrimary = variant === "primary";
+
+  return (
+    <div
+      className={`skill-category ${variant} fade-up stagger-item`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      <h3
+        className={`font-display text-xl md:text-2xl mb-6 flex items-center gap-3 ${
+          isPrimary ? "text-primary" : "text-secondary"
+        }`}
+      >
+        <div
+          className={`p-2 rounded-lg ${
+            isPrimary
+              ? "bg-primary/10 border border-primary/20"
+              : "bg-secondary/10 border border-secondary/20"
+          }`}
+        >
+          {icon}
+        </div>
+        {title}
+      </h3>
+
+      <div className="space-y-3">
+        {skills.map((skill, idx) => (
+          <div
+            key={idx}
+            className={`skill-item ${isPrimary ? "" : "secondary"}`}
+            style={{
+              borderColor: isPrimary
+                ? "rgba(100, 255, 218, 0.15)"
+                : "rgba(255, 107, 157, 0.15)",
+            }}
+          >
+            <div className="flex items-center gap-3">
+              <Zap
+                size={14}
+                className={isPrimary ? "text-primary/50" : "text-secondary/50"}
+              />
+              <span>{skill}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const SkillsConstellation = forwardRef<
   HTMLDivElement,
   SkillsConstellationProps
@@ -22,163 +86,102 @@ const SkillsConstellation = forwardRef<
       ref={ref}
       className="py-32 px-6 bg-bg-dark relative overflow-hidden"
     >
-      {/* Constellation lines background */}
-      <div className="absolute inset-0 opacity-10" aria-hidden="true">
+      {/* Constellation Background */}
+      <div className="skills-constellation-bg" aria-hidden="true">
         <svg className="w-full h-full">
-          <line
-            x1="10%"
-            y1="20%"
-            x2="30%"
-            y2="40%"
-            stroke="var(--color-primary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="30%"
-            y1="40%"
-            x2="50%"
-            y2="35%"
-            stroke="var(--color-primary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="50%"
-            y1="35%"
-            x2="70%"
-            y2="50%"
-            stroke="var(--color-primary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="70%"
-            y1="50%"
-            x2="85%"
-            y2="30%"
-            stroke="var(--color-primary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="20%"
-            y1="60%"
-            x2="40%"
-            y2="75%"
-            stroke="var(--color-secondary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="40%"
-            y1="75%"
-            x2="60%"
-            y2="70%"
-            stroke="var(--color-secondary)"
-            strokeWidth="1"
-          />
-          <line
-            x1="60%"
-            y1="70%"
-            x2="80%"
-            y2="80%"
-            stroke="var(--color-secondary)"
-            strokeWidth="1"
-          />
+          {/* Primary constellation lines */}
+          <g stroke="var(--color-primary)" strokeWidth="1" opacity="0.15">
+            <line x1="10%" y1="20%" x2="30%" y2="35%" />
+            <line x1="30%" y1="35%" x2="45%" y2="25%" />
+            <line x1="45%" y1="25%" x2="65%" y2="40%" />
+            <line x1="65%" y1="40%" x2="85%" y2="30%" />
+            <line x1="20%" y1="50%" x2="40%" y2="60%" />
+            <line x1="40%" y1="60%" x2="55%" y2="55%" />
+          </g>
+          {/* Secondary constellation lines */}
+          <g stroke="var(--color-secondary)" strokeWidth="1" opacity="0.12">
+            <line x1="15%" y1="65%" x2="35%" y2="75%" />
+            <line x1="35%" y1="75%" x2="55%" y2="70%" />
+            <line x1="55%" y1="70%" x2="75%" y2="80%" />
+            <line x1="75%" y1="80%" x2="90%" y2="70%" />
+          </g>
+          {/* Star nodes */}
+          <g fill="var(--color-primary)" opacity="0.3">
+            <circle cx="10%" cy="20%" r="3" />
+            <circle cx="30%" cy="35%" r="4" />
+            <circle cx="45%" cy="25%" r="3" />
+            <circle cx="65%" cy="40%" r="5" />
+            <circle cx="85%" cy="30%" r="3" />
+          </g>
+          <g fill="var(--color-secondary)" opacity="0.25">
+            <circle cx="15%" cy="65%" r="3" />
+            <circle cx="35%" cy="75%" r="4" />
+            <circle cx="55%" cy="70%" r="3" />
+            <circle cx="75%" cy="80%" r="4" />
+          </g>
         </svg>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="font-display text-4xl md:text-6xl text-primary mb-4 fade-up">
-          Skills Constellation
-        </h2>
-        <p className="font-mono text-text-secondary text-lg mb-20 fade-up">
-          Connected knowledge across the stack
-        </p>
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="font-display text-5xl md:text-7xl mb-4 fade-up">
+            <span className="gradient-text">Skills Constellation</span>
+          </h2>
+          <p
+            className="font-mono text-text-secondary text-lg fade-up"
+            style={{ transitionDelay: "0.1s" }}
+          >
+            Connected knowledge across the stack
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
-              <Layers size={28} />
-              Languages
-            </h3>
-            <div className="space-y-3">
-              {skills.languages.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <SkillCategory
+            title="Languages"
+            icon={<Layers size={20} className="text-primary" />}
+            skills={skills.languages}
+            variant="primary"
+            delay={0.1}
+          />
 
-          <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-secondary mb-6 flex items-center gap-3">
-              <Code2 size={28} />
-              Frontend
-            </h3>
-            <div className="space-y-3">
-              {skills.frontend.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-bg-card border border-secondary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-secondary hover:bg-secondary/5 transition-all"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
+          <SkillCategory
+            title="Frontend"
+            icon={<Code2 size={20} className="text-secondary" />}
+            skills={skills.frontend}
+            variant="secondary"
+            delay={0.2}
+          />
 
-          <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
-              <Database size={28} />
-              Backend
-            </h3>
-            <div className="space-y-3">
-              {skills.backend.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
+          <SkillCategory
+            title="Backend"
+            icon={<Database size={20} className="text-primary" />}
+            skills={skills.backend}
+            variant="primary"
+            delay={0.3}
+          />
 
-          <div className="fade-up stagger-item">
-            <h3 className="font-display text-2xl text-secondary mb-6 flex items-center gap-3">
-              <Terminal size={28} />
-              Data & Analysis
-            </h3>
-            <div className="space-y-3">
-              {skills.data.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-bg-card border border-secondary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-secondary hover:bg-secondary/5 transition-all"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
+          <SkillCategory
+            title="Data & Analysis"
+            icon={<Terminal size={20} className="text-secondary" />}
+            skills={skills.data}
+            variant="secondary"
+            delay={0.4}
+          />
 
-          <div className="fade-up stagger-item md:col-span-2 lg:col-span-1">
-            <h3 className="font-display text-2xl text-primary mb-6 flex items-center gap-3">
-              <Rocket size={28} />
-              Tools & More
-            </h3>
-            <div className="space-y-3">
-              {skills.other.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="bg-bg-card border border-primary/20 rounded px-4 py-3 font-mono text-text-primary hover:border-primary hover:bg-primary/5 transition-all"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
+          <SkillCategory
+            title="Tools & More"
+            icon={<Rocket size={20} className="text-primary" />}
+            skills={skills.other}
+            variant="primary"
+            delay={0.5}
+          />
         </div>
       </div>
+
+      {/* Section divider */}
+      <div className="section-divider absolute bottom-0 left-0 right-0" />
     </section>
   );
 });
