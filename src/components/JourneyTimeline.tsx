@@ -38,8 +38,10 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
           </div>
 
           <div className="relative">
-            {/* Central Spine Line */}
-            <div className="timeline-spine absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2" />
+            {/* Central Spine Line - Gradient Pulse */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 w-1 bg-bg-card border-x border-primary/10">
+              <div className="w-full h-full bg-linear-to-b from-primary/0 via-primary/50 to-primary/0 animate-pulse" />
+            </div>
 
             <div className="space-y-16 md:space-y-20">
               {journey.map((item, index) => {
@@ -52,19 +54,29 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
                     key={index}
                     className={`relative flex flex-col md:flex-row gap-8 md:gap-0 items-start ${
                       isEven ? "md:flex-row" : "md:flex-row-reverse"
-                    } fade-up stagger-item`}
+                    } fade-up stagger-item group`}
                   >
+                    {/* Connector Line (Horizontal) */}
+                    <div
+                      className={`hidden md:block absolute top-[28px] h-[2px] w-[50px] bg-linear-to-r from-primary/0 via-primary/30 to-primary/50 ${isEven ? "left-1/2" : "right-1/2"}`}
+                    />
+
                     {/* Icon Node on Spine */}
                     <div
-                      className={`timeline-node absolute left-6 md:left-1/2 -translate-x-1/2 ${
-                        isPrimary ? "" : "secondary"
-                      }`}
+                      className={`timeline-node absolute left-6 md:left-1/2 -translate-x-1/2 
+                        ${isPrimary ? "" : "secondary"}
+                        z-10 bg-bg-dark border-4 border-bg-dark outline outline-2 outline-primary/30
+                      `}
                     >
                       <Icon
                         size={24}
-                        className={
+                        className={`${
                           isPrimary ? "text-primary" : "text-secondary"
-                        }
+                        } transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110`}
+                      />
+                      {/* Pulse Ring */}
+                      <div
+                        className={`absolute inset-0 rounded-full animate-ping opacity-20 ${isPrimary ? "bg-primary" : "bg-secondary"}`}
                       />
                     </div>
 
@@ -75,37 +87,42 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
                       }`}
                     >
                       <div
-                        className={`glass-card rounded-xl p-6 md:p-8 hover-lift group relative overflow-hidden ${
-                          isPrimary ? "hover-glow" : ""
-                        }`}
+                        className={`glass-card rounded-2xl p-6 md:p-8 hover-lift relative overflow-hidden transition-all duration-500
+                        ${isPrimary ? "hover:shadow-[0_0_30px_rgba(100,255,218,0.1)]" : "hover:shadow-[0_0_30px_rgba(255,107,157,0.1)]"}
+                        border border-white/5
+                        `}
                         style={{
-                          borderColor: isPrimary
-                            ? "rgba(100, 255, 218, 0.2)"
-                            : "rgba(255, 107, 157, 0.2)",
+                          transformStyle: "preserve-3d",
                         }}
                       >
+                        {/* Hover glow effect */}
+                        <div
+                          className={`absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-linear-to-r from-transparent to-white opacity-40 group-hover:animate-shine`}
+                        />
+
+                        {/* Phase number - Stylish large background text */}
+                        <div
+                          className={`absolute -top-6 -right-4 text-9xl font-display opacity-5 select-none pointer-events-none ${
+                            isPrimary ? "text-primary" : "text-secondary"
+                          }`}
+                        >
+                          {index + 1}
+                        </div>
+
                         {/* Gradient accent line */}
                         <div
-                          className={`absolute top-0 left-0 right-0 h-1 ${
+                          className={`absolute top-0 left-0 bottom-0 w-1 ${
                             isPrimary
-                              ? "bg-linear-to-r from-primary via-primary-light to-primary"
-                              : "bg-linear-to-r from-secondary via-accent-purple to-secondary"
+                              ? "bg-linear-to-b from-primary via-primary-light to-primary"
+                              : "bg-linear-to-b from-secondary via-accent-purple to-secondary"
                           }`}
                         />
 
-                        {/* Phase number */}
-                        <div
-                          className={`absolute top-4 ${isEven ? "md:right-4 left-4 md:left-auto" : "left-4"} 
-                          font-mono text-xs ${isPrimary ? "text-primary/40" : "text-secondary/40"}`}
-                        >
-                          {String(index + 1).padStart(2, "0")}
-                        </div>
-
                         <h3
-                          className={`font-display text-2xl md:text-3xl mb-3 mt-4 ${
+                          className={`font-display text-2xl md:text-3xl mb-3 mt-2 ${
                             isPrimary
-                              ? "text-text-primary"
-                              : "gradient-text-secondary"
+                              ? "text-text-primary group-hover:text-primary transition-colors"
+                              : "gradient-text-secondary group-hover:text-secondary transition-colors"
                           }`}
                         >
                           {item.phase}
@@ -140,6 +157,9 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
                 );
               })}
             </div>
+
+            {/* Bottom Fade of Line */}
+            <div className="absolute bottom-0 left-6 md:left-1/2 -translate-x-1/2 w-4 h-32 bg-linear-to-t from-bg-dark to-transparent z-20"></div>
           </div>
         </div>
 

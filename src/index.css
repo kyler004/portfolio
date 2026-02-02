@@ -596,3 +596,14 @@ body {
   background: rgba(100, 255, 218, 0.3);
   color: var(--color-text-primary);
 }
+
+/* Shine Animation */
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+.animate-shine {
+  animation: shine 1s;
+}
