@@ -1,4 +1,4 @@
-import { Github, Mail, ChevronDown, Sparkles } from "lucide-react";
+import { Github, Mail, Sparkles } from "lucide-react";
 import { forwardRef } from "react";
 
 const HeroSection = forwardRef<HTMLDivElement>((_, ref) => {
@@ -29,11 +29,11 @@ const HeroSection = forwardRef<HTMLDivElement>((_, ref) => {
 
         {/* Extra decorative shapes */}
         <div
-          className="floating-shape shape-primary absolute bottom-[15%] left-[20%] w-24 h-24 rotate-[30deg] float"
+          className="floating-shape shape-primary absolute bottom-[15%] left-[20%] w-24 h-24 rotate-30 float"
           style={{ animationDelay: "2s", animationDuration: "7s" }}
         />
         <div
-          className="floating-shape shape-secondary absolute top-[25%] right-[30%] w-16 h-16 rotate-[60deg] float-slow"
+          className="floating-shape shape-secondary absolute top-[25%] right-[30%] w-16 h-16 rotate-60 float-slow"
           style={{ animationDelay: "4s" }}
         />
 
@@ -132,7 +132,7 @@ const HeroSection = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-dark to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-bg-dark to-transparent pointer-events-none" />
     </section>
   );
 });

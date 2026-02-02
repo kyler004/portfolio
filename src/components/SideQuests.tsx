@@ -16,7 +16,7 @@ export default function SideQuests({ sideQuests }: SideQuestsProps) {
   return (
     <section className="py-32 px-6 relative overflow-hidden">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-dark via-bg-card/30 to-bg-dark" />
+      <div className="absolute inset-0 bg-linear-to-b from-bg-dark via-bg-card/30 to-bg-dark" />
       <div className="absolute inset-0 diagonal-stripes" />
 
       <div className="max-w-6xl mx-auto relative z-10">

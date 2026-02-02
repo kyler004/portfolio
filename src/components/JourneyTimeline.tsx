@@ -88,8 +88,8 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
                         <div
                           className={`absolute top-0 left-0 right-0 h-1 ${
                             isPrimary
-                              ? "bg-gradient-to-r from-primary via-primary-light to-primary"
-                              : "bg-gradient-to-r from-secondary via-accent-purple to-secondary"
+                              ? "bg-linear-to-r from-primary via-primary-light to-primary"
+                              : "bg-linear-to-r from-secondary via-accent-purple to-secondary"
                           }`}
                         />
 

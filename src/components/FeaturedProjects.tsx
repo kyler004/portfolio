@@ -103,7 +103,7 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
         className="py-32 px-6 bg-bg-dark relative overflow-hidden"
       >
         {/* Subtle background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-darker/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-bg-darker/50 to-transparent" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}

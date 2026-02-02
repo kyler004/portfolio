@@ -14,17 +14,18 @@ export default function Contact({
   return (
     <section
       id="contact"
-      className="py-32 px-6 relative overflow-hidden hero-gradient"
+      className="py-32 relative overflow-hidden hero-gradient w-full"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 gradient-mesh opacity-60" />
       <div className="absolute inset-0 noise-overlay" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
-        {/* Glass container */}
-        <div className="contact-container text-center">
+      {/* Full width container */}
+      <div className="w-full h-full relative z-10 px-6 md:px-12 flex flex-col items-center justify-center">
+        {/* Glass container - now wider */}
+        <div className="contact-container w-full max-w-5xl text-center backdrop-blur-xl bg-bg-card/40 border border-primary/10 rounded-3xl p-12 md:p-20 relative overflow-hidden">
           {/* Header badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-subtle mb-8 fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-subtle mb-8 fade-up mx-auto">
             <MessageCircle size={16} className="text-primary" />
             <span className="font-mono text-sm text-primary">
               Open to Opportunities
@@ -32,26 +33,33 @@ export default function Contact({
           </div>
 
           {/* Title */}
-          <h2
-            className="font-display text-4xl md:text-6xl mb-6 fade-up"
+          <div
+            className="mb-8 fade-up mx-auto"
             style={{ transitionDelay: "0.1s" }}
           >
-            <span className="gradient-text">Let's Build Something</span>
-          </h2>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl">
+              <span className="gradient-text">Let's Build</span>
+            </h2>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl mt-2">
+              <span className="text-text-primary">Something Great</span>
+            </h2>
+          </div>
 
           {/* Description */}
-          <p
-            className="font-body text-lg md:text-xl text-text-secondary mb-12 leading-relaxed max-w-2xl mx-auto fade-up"
-            style={{ transitionDelay: "0.2s" }}
-          >
-            I'm currently looking for opportunities to collaborate on{" "}
-            <span className="text-secondary font-medium">
-              impactful projects
-            </span>{" "}
-            and learn from experienced developers. Whether it's full-stack
-            development, data science, or something entirely new—
-            <span className="text-primary font-medium">let's connect</span>.
-          </p>
+          <div className="flex justify-center w-full">
+            <p
+              className="font-body text-xl md:text-2xl text-text-secondary mb-12 leading-relaxed max-w-3xl mx-auto fade-up text-center"
+              style={{ transitionDelay: "0.2s" }}
+            >
+              I'm currently looking for opportunities to collaborate on{" "}
+              <span className="text-secondary font-medium">
+                impactful projects
+              </span>{" "}
+              and learn from experienced developers. Whether it's full-stack
+              development, data science, or something entirely new—
+              <span className="text-primary font-medium">let's connect</span>.
+            </p>
+          </div>
 
           {/* CTA Button */}
           <div
@@ -60,50 +68,53 @@ export default function Contact({
           >
             <a
               href={`mailto:${email}`}
-              className="btn-primary pulse-glow group flex items-center gap-3 text-lg px-10 py-5"
+              className="btn-primary pulse-glow group flex items-center gap-4 text-xl px-12 py-6 rounded-xl hover:scale-105 transition-all duration-300"
             >
               <Mail
-                size={24}
+                size={28}
                 className="group-hover:rotate-12 transition-transform"
               />
               <span>{email}</span>
               <Send
-                size={18}
-                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                size={24}
+                className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
               />
             </a>
           </div>
 
           {/* Social Links */}
           <div
-            className="flex gap-6 justify-center fade-up"
+            className="flex gap-8 justify-center fade-up items-center"
             style={{ transitionDelay: "0.4s" }}
           >
             <a
               href={githubUrl}
-              className="social-icon group"
+              className="social-icon group w-16 h-16"
               aria-label="GitHub Profile"
             >
               <Github
-                size={24}
+                size={32}
                 className="group-hover:scale-110 transition-transform"
               />
             </a>
             <a
               href={linkedinUrl}
-              className="social-icon group"
+              className="social-icon group w-16 h-16"
               aria-label="LinkedIn Profile"
             >
               <Linkedin
-                size={24}
+                size={32}
                 className="group-hover:scale-110 transition-transform"
               />
             </a>
           </div>
 
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/20 rounded-tl-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-secondary/20 rounded-br-3xl pointer-events-none" />
+          <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+          <div className="absolute top-10 left-10 w-8 h-8 border border-primary/30 rounded-full animate-bounce delay-100 opacity-50" />
+          <div className="absolute bottom-10 right-10 w-12 h-12 border border-secondary/30 rounded-full animate-bounce delay-700 opacity-50" />
         </div>
       </div>
     </section>
