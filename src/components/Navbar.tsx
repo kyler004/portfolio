@@ -43,41 +43,41 @@ export default function Navbar({
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 max-w-[1200px] mx-auto ${
         scrolled ? "glass py-3 shadow-lg" : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="w-full px-8 md:px-12 lg:px-16 flex justify-between items-center">
         {/* Logo */}
         <div className="relative group cursor-pointer">
-          <span className="font-display text-2xl gradient-text-primary text-glow-primary">
+          <span className="font-display text-3xl gradient-text-primary text-glow-primary">
             R.DEV
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
         </div>
 
         {/* Navigation Links */}
-        <div className="flex gap-2 font-mono text-sm">
+        <div className="flex gap-4 font-mono text-base">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.ref, item.id)}
-              className={`relative px-4 py-2 rounded-lg transition-all duration-300 group overflow-hidden ${
+              className={`relative px-6 py-3 rounded-xl transition-all duration-300 group overflow-hidden font-medium ${
                 activeSection === item.id
-                  ? "text-primary"
-                  : "text-text-secondary hover:text-text-primary"
+                  ? "text-primary bg-primary/10"
+                  : "text-text-secondary hover:text-text-primary hover:bg-white/5"
               }`}
             >
               {/* Background hover effect */}
-              <span className="absolute inset-0 bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
+              <span className="absolute inset-0 bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-xl"></span>
 
               {/* Text */}
               <span className="relative z-10">{item.label}</span>
 
               {/* Active indicator */}
               <span
-                className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 ${
-                  activeSection === item.id ? "w-8" : "w-0 group-hover:w-4"
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-linear-to-r from-primary to-secondary transition-all duration-300 rounded-full ${
+                  activeSection === item.id ? "w-10" : "w-0 group-hover:w-6"
                 }`}
               ></span>
             </button>
@@ -87,16 +87,16 @@ export default function Navbar({
         {/* CTA Button */}
         <a
           href="#contact"
-          className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-sm font-medium
-                     bg-gradient-to-r from-primary/10 to-secondary/10 
-                     border border-primary/30 text-primary
-                     hover:from-primary/20 hover:to-secondary/20 hover:border-primary/50
-                     hover:shadow-lg hover:shadow-primary/20
+          className="hidden md:flex items-center gap-3 px-8 py-4 rounded-xl font-mono text-base font-semibold
+                     bg-linear-to-r from-primary/15 to-secondary/15 
+                     border-2 border-primary/40 text-primary
+                     hover:from-primary/25 hover:to-secondary/25 hover:border-primary/60
+                     hover:shadow-xl hover:shadow-primary/25 hover:scale-105
                      transition-all duration-300"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
           </span>
           Let's Talk
         </a>

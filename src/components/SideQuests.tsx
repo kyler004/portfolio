@@ -14,7 +14,7 @@ interface SideQuestsProps {
 
 export default function SideQuests({ sideQuests }: SideQuestsProps) {
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="py-40 px-6 md:px-12 relative overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-linear-to-b from-bg-dark via-bg-card/30 to-bg-dark" />
       <div className="absolute inset-0 diagonal-stripes" />

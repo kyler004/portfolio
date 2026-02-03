@@ -100,7 +100,7 @@ const FeaturedProjects = forwardRef<HTMLDivElement, FeaturedProjectsProps>(
     return (
       <section
         ref={ref}
-        className="py-32 px-6 bg-bg-dark relative overflow-hidden"
+        className="py-40 px-6 md:px-12 bg-bg-dark relative overflow-hidden"
       >
         {/* Subtle background gradient */}
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-bg-darker/50 to-transparent" />

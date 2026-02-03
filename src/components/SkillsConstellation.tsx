@@ -84,7 +84,7 @@ const SkillsConstellation = forwardRef<
   return (
     <section
       ref={ref}
-      className="py-32 px-6 bg-bg-dark relative overflow-hidden"
+      className="py-40 px-6 md:px-12 bg-bg-dark relative overflow-hidden"
     >
       {/* Constellation Background */}
       <div className="skills-constellation-bg" aria-hidden="true">

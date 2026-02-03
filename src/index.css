@@ -428,8 +428,8 @@ body {
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
@@ -437,13 +437,15 @@ body {
   );
   color: var(--color-bg-dark);
   font-family: "JetBrains Mono", monospace;
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary::before {
@@ -460,8 +462,8 @@ body {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(100, 255, 218, 0.45);
 }
 
 .btn-primary:hover::before {
@@ -476,18 +478,20 @@ body {
 .btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
   background: transparent;
   color: var(--color-primary);
   font-family: "JetBrains Mono", monospace;
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
   border: 2px solid var(--color-primary);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
 .btn-outline::before {
@@ -502,7 +506,8 @@ body {
 .btn-outline:hover {
   color: var(--color-bg-dark);
   border-color: var(--color-primary);
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+  box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+  transform: translateY(-3px) scale(1.03);
 }
 
 .btn-outline:hover::before {
@@ -606,4 +611,238 @@ body {
 
 .animate-shine {
   animation: shine 1s;
+}
+
+/* ===== SECTION LAYOUT UTILITIES ===== */
+.section-spacing {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.section-spacing-lg {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.section-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-content {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Timeline Node */
+.timeline-node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.timeline-node.secondary {
+  outline-color: rgba(255, 107, 157, 0.3);
+}
+
+/* Project Card */
+.project-card {
+  background: linear-gradient(
+    135deg,
+    rgba(17, 34, 64, 0.9) 0%,
+    rgba(29, 52, 97, 0.7) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.25);
+}
+
+.project-card.secondary:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 107, 157, 0.15);
+  border-color: rgba(255, 107, 157, 0.25);
+}
+
+.project-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card-accent {
+  transform: scaleX(1);
+}
+
+/* Skill Category */
+.skill-category {
+  background: linear-gradient(
+    135deg,
+    rgba(17, 34, 64, 0.8) 0%,
+    rgba(29, 52, 97, 0.6) 100%
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.skill-category.secondary {
+  border-color: rgba(255, 107, 157, 0.1);
+}
+
+.skill-item {
+  padding: 0.75rem 1rem;
+  background: rgba(100, 255, 218, 0.05);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: rgba(100, 255, 218, 0.1);
+  border-color: rgba(100, 255, 218, 0.3);
+  transform: translateX(4px);
+}
+
+.skill-item.secondary {
+  background: rgba(255, 107, 157, 0.05);
+  border-color: rgba(255, 107, 157, 0.1);
+}
+
+.skill-item.secondary:hover {
+  background: rgba(255, 107, 157, 0.1);
+  border-color: rgba(255, 107, 157, 0.3);
+}
+
+/* Skills Constellation Background */
+.skills-constellation-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Quest Card */
+.quest-card {
+  background: linear-gradient(
+    135deg,
+    rgba(17, 34, 64, 0.9) 0%,
+    rgba(29, 52, 97, 0.7) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 107, 157, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.quest-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 107, 157, 0.15);
+  border-color: rgba(255, 107, 157, 0.3);
+}
+
+.quest-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(255, 107, 157, 0.1);
+  border: 1px solid rgba(255, 107, 157, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Social Icon */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.08);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.4);
+  color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 255, 218, 0.2),
+    transparent
+  );
+}
+
+/* Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-dark) 0%,
+    var(--color-bg-darker) 50%,
+    var(--color-bg-card) 100%
+  );
 }

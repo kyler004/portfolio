@@ -18,7 +18,7 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
     return (
       <section
         ref={ref}
-        className="py-32 px-6 relative diagonal-stripes overflow-hidden"
+        className="py-40 px-6 md:px-12 relative diagonal-stripes overflow-hidden"
       >
         {/* Background decoration */}
         <div className="absolute inset-0 gradient-mesh opacity-50" />

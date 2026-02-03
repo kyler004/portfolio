@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-bg-dark border-t border-primary/10 relative overflow-hidden">
+    <footer className="py-16 bg-bg-dark border-t border-primary/10 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1 bg-linear-to-r from-transparent via-primary/50 to-transparent opacity-50" />
 

@@ -14,7 +14,7 @@ export default function Contact({
   return (
     <section
       id="contact"
-      className="py-32 relative overflow-hidden hero-gradient w-full"
+      className="py-40 relative overflow-hidden hero-gradient w-full"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 gradient-mesh opacity-60" />
